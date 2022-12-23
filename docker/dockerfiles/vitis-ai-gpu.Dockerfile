@@ -245,6 +245,21 @@ RUN chmod a+rx ${VAI_ROOT}/scripts/host_cross_compiler_setup.sh
 COPY dockerfiles/replace_pytorch.sh ${VAI_ROOT}/scripts/
 RUN chmod a+rx ${VAI_ROOT}/scripts/replace_pytorch.sh
 
+# add cuda repository to sources lists
+RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin \
+    && mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
+    && sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub \
+    && sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+
+# install cuda toolkit
+ARG CUDA_TOOLKIT_VERSION=11-3
+RUN sudo apt update \
+    && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends \
+        cuda-toolkit-${CUDA_TOOLKIT_VERSION} \
+	&& apt autoclean \
+	&& apt autoremove \
+	&& rm -rf /var/lib/apt/lists/*
+
 # Set up Anaconda
 USER vitis-ai-user
 
