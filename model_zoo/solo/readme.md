@@ -48,31 +48,31 @@
 
 1. Training. modfied the data_root path in config file 
     ```shell
-    cd code/train/
+    cd train/
     bash run_train.sh 
     ```
 
 2. Test and Evaluation
     ```shell
-    cd code/test/
+    cd test/
     bash run_test.sh 
     ```
 
 3. Quantization
     ```shell
-    cd code/test
+    cd test/
     bash run_quant.sh
     ```
 
 4. Qaunt Testing and Dump xmodel
    ```shell
-   cd code/test
+   cd test/
    bash run_test_quant.sh 
    ```    
 
 5. Compile for DPU
    ```shell
-   cd code/test
+   cd test/
    bash run_compile.sh 
    ```    
 

@@ -116,9 +116,9 @@ mmdet/version.py
 *.log.json
 
 # working dirs
-code/train/work_dir
-code/test/quantize_result
-code/test/solo_pt
+train/work_dir
+test/quantize_result
+test/solo_pt
 
 # Pytorch
 *.pth
