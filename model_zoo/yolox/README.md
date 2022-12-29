@@ -31,12 +31,9 @@
 
 ### Preparation
 
-1. Dataset description
-   - download TT100k dataset in code/datasets/.
-
-2. Dataset diretory structure (COCO Dataset)
+Prepare Dataset diretory structure (COCO Dataset)
    ```
-   + data/
+   + yolox/datasets/
       + train_img
       + val_img
       + train_anno.json
