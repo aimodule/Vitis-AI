@@ -1,4 +1,4 @@
-# TSD_YoloX for traffic sign detection
+# YoloX
 ### Contents
 1. [Installation](#installation)
 2. [Preparation](#preparation)
@@ -26,7 +26,7 @@
    ```
    - Compile the yolox using pip:
    ```shell
-   pip install --user -v -e .
+   python3 setup.py develop
    ```
 
 ### Preparation
@@ -34,20 +34,13 @@
 1. Dataset description
    - download TT100k dataset in code/datasets/.
 
-2. Dataset diretory structure
+2. Dataset diretory structure (COCO Dataset)
    ```
    + data/
-     + annotationsi.json
-     + lmdb
-     + marks
-     + other
-     + train
-     + test
-   ```
-3. Prepare dataset required by model.
-   ```
-   cd code/datasets/ 
-   bash convert_label.sh
+      + train_img
+      + val_img
+      + train_anno.json
+      + val_anno.json
    ```
 
 ### Eval/Test
@@ -55,48 +48,28 @@
 1. Training 
 
     ```shell
-    cd code/
-
     bash run_train.sh 
     ```
 2. Demo
     ```shell
-    cd code/
-
     bash run_demo.sh
     ```
 3. Quantization
     ```shell
-    cd code/
-
-    bash quant_PTQ.sh
+    bash run_quant_PTQ.sh
     ```
 4. QAT Training(quantizing model directly would lead large accuracy drop, so we provide quantization training scripts to improve quantization accuracy.)
    ```shell
-   cd code/
-
-   bash quant_QAT.sh 
+   bash run_quant_QAT.sh 
    ```    
 6. QAT Testing and Dump xmodel
    ```shell
-   cd code/
-
-   bash qat_convert.sh 
+   bash run_qat_convert.sh 
    ```    
-
-### Performance
-Noteperformance is evaluated on TT100k val.
-- Float model
-
-| model | input size | FLOPs | AP|
-|-------|------------|--------------|-----------|
-| YOLOx-m-modified| 640x640 | 72.96G | 62.3 |
-
-- QAT model
-
-| model | input size | FLOPs | INT8 AP|
-|-------|------------|--------------|-----------|
-| YOLOx-m-modified| 640x640 | 72.96G | 62.1 |
+7. Compiling for target architecture
+   ```shell
+   bash run_compile.sh 
+   ```    
 
 ### Model_info
 
