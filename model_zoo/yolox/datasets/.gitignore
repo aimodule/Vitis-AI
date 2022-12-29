@@ -1,0 +1,4 @@
+# ignore training data in this folder
+*.json
+*.jpg
+*.png

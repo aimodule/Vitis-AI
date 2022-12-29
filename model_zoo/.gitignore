@@ -1,3 +1,13 @@
+# archive files
 *.zip
+
+# image files
 *.jpg
 *.png
+
+# working dirs
+.qat
+YOLOX_outputs
+quantized
+converted_qat_results
+yolox_pt
