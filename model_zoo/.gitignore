@@ -1,5 +1,7 @@
 # archive files
 *.zip
+*.tar
+*.gz
 
 # image files
 *.jpg
