@@ -122,3 +122,6 @@ test/solo_pt
 
 # Pytorch
 *.pth
+
+# 
+*_fz.*
