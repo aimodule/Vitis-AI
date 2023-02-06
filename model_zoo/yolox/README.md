@@ -24,7 +24,12 @@
    ```shell
    pip install --user -r requirements.txt
    ```
-   - Compile the yolox using pip:
+   - With graphics cards of the 30xx generation (e.g. RTX3060) there are problems with the pytorch installation. A script must be run to fix this.
+   ```shell
+   cd /workspace/bugfix
+   bash fix_pytorch.sh
+   ```
+   - Compile and install the the yolox framework using pip:
    ```shell
    python3 setup.py develop
    ```
@@ -34,10 +39,10 @@
 Prepare Dataset diretory structure (COCO Dataset)
    ```
    + yolox/datasets/
-      + train_img
-      + val_img
-      + train_anno.json
-      + val_anno.json
+      + train
+      + val
+      + train.json
+      + val.json
    ```
 
 ### Eval/Test
